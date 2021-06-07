@@ -10,7 +10,7 @@ using namespace std;
  * 
  * 13 8
  * MICHAELANGELO
- * PHIELULO
+ * PHXELULO
  * 
  **/
 int longestCommonSubsequence(int m, int n, string x, string y) {
