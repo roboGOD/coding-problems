@@ -47,7 +47,7 @@ int main() {
         if(i == n-1) {
           v.pb(node(start, 1, -1));
         } else {
-          diff = a[i] - a[i+1];
+          diff = a[i+1] - a[i];
         }
 
         i++;
@@ -55,7 +55,7 @@ int main() {
         if(i == n-1) {
           v.pb(node(start, i-start+1, diff));
           i++;
-        } else if(a[i] - a[i+1] != diff) {
+        } else if(a[i+1] - a[i] != diff) {
           v.pb(node(start, i-start+1, diff));
           isf = true;
           start = -1;
@@ -72,17 +72,30 @@ int main() {
       mx = max(mx, v[i].l1);
       lli j = i+1;
       lli il = v[i].s1 + v[i].l1 - 1;
+
+      // cout << "VI " << v[i].s1 << " " << il << endl; 
+      bool found = false;
+      bool sf = false;
+
       while(j < v.size()) {
-        if(v[j].d1 == v[i].d1 && v[j].s1 - il == 2 && a[v[j].s1] - a[il] == 2*v[i].d1) {
-          break;
+        if(v[j].s1 - il == 2 && a[v[j].s1] - a[il] == 2*v[i].d1) {
+          if(v[j].d1 == v[i].d1) {
+            found = true;
+            break;
+          } else {
+            sf = true;
+            break;
+          }
         }
         j++;
       }
       
-      if(j < v.size() && v[j].d1 == v[i].d1 && v[j].s1 - il == 2 && a[v[j].s1] - a[il] == 2*v[i].d1) {
+      if(j < v.size() && found) {
         // cout << "VI " << v[i].s1 << " " << il << endl; 
         // cout << "VJ " << v[j].s1 << " " << v[j].s1 + v[j].l1 - 1 << endl; 
         mx = max(v[i].l1 + v[j].l1 + 1, mx);
+      } else if(j < v.size() && sf) {
+        mx = max(v[i].l1 + 2, mx);
       } else {
         if(il == n-1) {
           mx = max(v[i].l1, mx);
