@@ -1,11 +1,12 @@
 #include <bits/stdc++.h>
-#define lli long long int
+#define ll long long int
+#define ld long double
 #define pb push_back
 
 using namespace std;
 
 int main() {
-  lli t;
+  ll t;
 
   cin >> t;
   for(int _=0; _<t; _++) {
