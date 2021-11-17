@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#define lli long long int
+#define ll long long int
 #define pb push_back
 
 using namespace std;
