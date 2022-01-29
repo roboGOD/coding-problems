@@ -3,6 +3,7 @@
 - 2021/RoundH/SillySubstitutions
 - 2021/RoundH/DependentEvents
 - 2021/RoundG/BananaBunches
+- 2021/RoundA/Checksum
 
 # Skipping 
 
