@@ -16,14 +16,18 @@ class Solution {
       }
       
       int result = -1, l=0, r=0;
+      boolean resultFound = false;
+      int count = 0;
+      int i,j;
       
       for(int k=1; k<n; k++) {
           // System.out.println("K IS " + k);
           if(k <= r && r-k > zarr[k-l]) {
               zarr[k] = zarr[k-l];
           } else {
-              int count = 0;
-              int i=0, j = k;
+              count = 0;
+              i = 0;
+              j = k;
               while(j < n && sc[i] == sc[j]) {
                   l=k;
                   r=j;
@@ -35,6 +39,9 @@ class Solution {
                   j++;
               }
               zarr[k] = count;
+              if(count == nn) {
+                  break;
+              }
           }
       }
       
