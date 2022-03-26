@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Kickstart {
+public class Solution {
 
   public static void solve(long t, Scanner sc) {
     int n = sc.nextInt();
